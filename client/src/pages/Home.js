@@ -5,6 +5,7 @@ import ThoughtList from '../components/ThoughtList';
 
 const Home = () => {
   // use useQuery hook to make query request
+  //React Hook to retrieve data from an Apollo server
   const { loading, data } = useQuery(QUERY_THOUGHTS);
   const thoughts = data?.thoughts || [];
   console.log(thoughts);
