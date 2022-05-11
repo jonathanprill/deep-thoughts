@@ -9,14 +9,27 @@ import SingleThought from './pages/SingleThought';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import Home from './pages/Home';
+import { setContext } from '@apollo/client/link/context';
 
 // NEW
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
 
+// retrieve token from localStorage and set the HTTP request headers of every request to include the token
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
+
+// every request retrieves the token and sets the request headers before making the request to the API
 const client = new ApolloClient({
-  link: httpLink,
+  link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
 // NEW End
