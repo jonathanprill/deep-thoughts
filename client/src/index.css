@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
 :root {
-  --primary: #497573;
-  --secondary: #99f7f2;
+  --primary: #fc0000;
+  --secondary: #80cbc4;
   --tertiary: #b2c2c1;
   --quatrinary: #cadbda;
   --light: #e1f5f4;
-  --dark: #6c7575;
+  --dark: #717CB4;
   --error: rgb(228, 46, 1);
   --border-radius: 0.3rem;
   --spacing-one: calc(1rem * 0.25);
@@ -12,6 +14,10 @@
   --spacing-three: 1rem;
   --spacing-four: calc(1rem * 1.5);
   --spacing-five: calc(1rem * 3);
+  --color-canvas-default-transparent: rgba(13,17,23,0);
+  --color-canvas-default: #0d1117;
+  --color-accent-subtle: rgba(56,139,253,0.15);
+  --color-success-subtle: rgba(46,160,67,0.15);
 }
 
 * {
@@ -26,12 +32,12 @@ body {
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Inconsolata', monospace;
+  font-family: 'Roboto', sans-serif;
   font-weight: 400;
   line-height: 1.5;
   font-size: 20px;
   color: var(--dark);
-  background-color: #f3fffee1;
+  background-color: #0d1117;
 }
 
 h1,
@@ -47,6 +53,7 @@ h6 {
 }
 
 h1 {
+  font-family: 'Archivo Black', sans-serif;
   font-size: 2.25rem;
 }
 
@@ -115,9 +122,9 @@ nav a:hover {
   margin: 5px 0;
   border-radius: var(--border-radius);
   border: none;
-  color: var(--dark);
+  color: #0d1117;
   outline: none;
-  background-color: var(--secondary);
+  background-color: #c792ea;
   transition: all 0.5s;
 }
 
@@ -134,16 +141,16 @@ nav a:hover {
 /* CARDS */
 .card {
   margin: 0 0 20px 0;
-  border: 3px solid var(--dark);
+  border: 1px solid var(--dark);
   border-radius: var(--border-radius);
-  background-color: var(--light);
+  background-color: #141321;
   color: var(--dark);
 }
 
 .card-header {
   color: var(--secondary);
   margin: 0;
-  background-color: var(--dark);
+  background-image: linear-gradient(180deg, var(--color-canvas-default-transparent), var(--color-canvas-default)),linear-gradient(70deg, var(--color-accent-subtle) 32%, var(--color-success-subtle));
   padding: 0.625rem;
   border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
 }
@@ -781,8 +788,10 @@ nav a:hover {
 }
 
 .bg-secondary {
-  background-color: var(--secondary);
+  background-image: linear-gradient(180deg, var(--color-canvas-default-transparent), var(--color-canvas-default)),linear-gradient(70deg, var(--color-accent-subtle) 32%, var(--color-success-subtle));
 }
+
+
 
 .bg-tertiary {
   background-color: var(--tertiary);
